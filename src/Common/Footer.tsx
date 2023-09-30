@@ -11,7 +11,7 @@ export const Footer = () => {
     <div>
       <Container color={isBoolean ? "#333" : "#cacaca46"}>
         <Wrapper>
-          <Text color={isBoolean ? "white" : "#cacaca46"}>
+          <Text color={isBoolean ? "white" : "#585858d0"}>
             2023 HashIT App Ltd. Allrights reserved.
           </Text>
         </Wrapper>

@@ -23,14 +23,16 @@ export const EditorsChoice = () => {
             </Icon>
             <input type="text" name="" id="" placeholder="Full name" />
           </Input>
-          <Input color={isBoolean ? "#282828" : "white"}>
+          <Input color={isBoolean ? "white" : "#282828"}>
             <Icon color={isBoolean ? "white" : "#282828"}>
               <GoMail />
             </Icon>
             <input type="text" name="" id="" placeholder="Email Address" />
           </Input>
-          <Button color={isBoolean ? "white" : "#282828"}>
-            Get notified when HashIT is live
+          <Button color={!isBoolean ? "#282828" : "white"}>
+            <p color={isBoolean ? "red" : "red"}>
+              Get notified when HashIT is live
+            </p>
           </Button>
           <Iconss color={isBoolean ? "white" : "#282828"}>
             <BsFacebook />
@@ -47,6 +49,7 @@ export const EditorsChoice = () => {
 const Icon = styled.p`
   font-size: 20px;
   padding-left: 15px;
+  color: ${(props) => (props.color === "white" ? "white" : "black")};
 `;
 const Iconss = styled.p`
   width: 50%;
@@ -61,7 +64,6 @@ const Button = styled.div`
   width: 47%;
   height: 50px;
   background-color: ${(props) => props.color};
-  color: ${(props) => props.color};
   border-radius: 5px;
   color: white;
   font-size: 16px;
@@ -71,10 +73,14 @@ const Button = styled.div`
   margin-top: 30px;
   padding: 2px 7px;
   align-items: center;
+  color: ${(props) => (props.color === "#282828" ? "white" : "black")};
   @media (max-width: 500px) {
     width: 100%;
     font-size: 14px;
     background-color: black;
+  }
+
+  p {
   }
 `;
 const Input = styled.div`
@@ -87,7 +93,8 @@ const Input = styled.div`
   gap: 20px;
   margin-top: 30px;
   border-radius: 5px;
-  border: 1px solid ${(props) => props.color};
+  border: 1px solid
+    ${(props) => (props.color === "white" ? "white" : "#282828")};
   @media (max-width: 500px) {
     width: 100%;
     font-size: 16px;
@@ -97,7 +104,9 @@ const Input = styled.div`
     flex: 1;
     outline: none;
     border: none;
-    background-color: ${(props) => props.color};
+    background-color: ${(props) =>
+      props.color === "white" ? "#282828" : "white"};
+    color: ${(props) => (props.color ? "black" : "white")};
   }
 `;
 const Text = styled.h1`

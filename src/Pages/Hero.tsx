@@ -82,3 +82,5 @@ const Container = styled.div`
   justify-content: center;
   padding-top: 100px;
 `;
+
+// Using CRUD operation in HTTP, i'll be getting all my dummy data using the (GET method), adding new data using the (POST method), updating the data using (the PATCH and PUT method) and deleting the data using the (DELETE method). stay tuned, relax, learn and enjoy.
