@@ -1,10 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import { Mainrouter } from "./Router/Mainrouter";
+import { GlobalProvider } from "./Pages/useContext";
 
 const App = () => {
   return (
     <div>
-      <RouterProvider router={Mainrouter} />
+      <GlobalProvider>
+        <RouterProvider router={Mainrouter} />
+      </GlobalProvider>
     </div>
   );
 };

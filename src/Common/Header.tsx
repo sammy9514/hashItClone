@@ -1,21 +1,38 @@
 import { styled } from "styled-components";
 import logo from "../Assets/logo-black-12822108.svg";
+import logoDark from "../Assets/logo-2ed48836.svg";
 import { PiToggleLeftFill } from "react-icons/pi";
 import { PiToggleRightFill } from "react-icons/pi";
-import { useState } from "react";
-export const Header = () => {
+import { useContext, useState } from "react";
+import { useColorChange } from "../useColor";
+import { useGlobalContext } from "../Pages/useContext";
+export const Header: React.FC = () => {
   let [on, off] = useState(false);
   const toggle = () => {
     off(!on);
   };
+
+  // const [dark, setDark] = useState(false);
+  // const colorChange = () => {
+  //   setDark(!dark);
+  // };
+
+  // const { colorChange, dark } = useColorChange();
+  const { isBoolean, toggleBoolean } = useGlobalContext();
+
   return (
     <div>
-      <Container>
+      <Container color={isBoolean ? "#282828" : "white"}>
         <Wrapper>
           <Logo>
-            <Ilogo src={logo} />
+            {isBoolean ? <Ilogo src={logoDark} /> : <Ilogo src={logo} />}
           </Logo>
-          <Toggle onClick={toggle}>
+          <Toggle
+            onClick={() => {
+              toggle();
+              toggleBoolean();
+            }}
+          >
             {on ? (
               <PiToggleRightFill style={{ color: "dodgerblue" }} />
             ) : (
@@ -49,7 +66,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100px;
-  background-color: white;
+  background-color: ${(props) => props.color};
   display: flex;
   justify-content: center;
   align-items: center;

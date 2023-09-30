@@ -4,29 +4,35 @@ import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
+import { useColorChange } from "../useColor";
+import { useGlobalContext } from "./useContext";
 
 export const EditorsChoice = () => {
+  const { isBoolean } = useGlobalContext();
+
   return (
     <div>
-      <Container>
+      <Container color={isBoolean ? "#282828" : "white"}>
         <Wrapper>
-          <Text>
+          <Text color={isBoolean ? "white" : "#282828"}>
             Join the waitlist for <span>HashIT!</span>
           </Text>
-          <Input>
-            <Icon>
+          <Input color={isBoolean ? "white" : "#282828"}>
+            <Icon color={isBoolean ? "white" : "#282828"}>
               <GoPerson />
             </Icon>
             <input type="text" name="" id="" placeholder="Full name" />
           </Input>
-          <Input>
-            <Icon>
+          <Input color={isBoolean ? "#282828" : "white"}>
+            <Icon color={isBoolean ? "white" : "#282828"}>
               <GoMail />
             </Icon>
             <input type="text" name="" id="" placeholder="Email Address" />
           </Input>
-          <Button>Get notified when HashIT is live</Button>
-          <Iconss>
+          <Button color={isBoolean ? "white" : "#282828"}>
+            Get notified when HashIT is live
+          </Button>
+          <Iconss color={isBoolean ? "white" : "#282828"}>
             <BsFacebook />
             <AiFillTwitterCircle />
             <AiFillInstagram />
@@ -49,11 +55,13 @@ const Iconss = styled.p`
   justify-content: center;
   gap: 5px;
   font-size: 25px;
+  color: ${(props) => props.color};
 `;
 const Button = styled.div`
   width: 47%;
   height: 50px;
-  background-color: black;
+  background-color: ${(props) => props.color};
+  color: ${(props) => props.color};
   border-radius: 5px;
   color: white;
   font-size: 16px;
@@ -72,14 +80,14 @@ const Button = styled.div`
 const Input = styled.div`
   width: 47%;
   height: 50px;
-  background-color: white;
+  /* background-color: ${(props) => props.color}; */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   margin-top: 30px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid ${(props) => props.color};
   @media (max-width: 500px) {
     width: 100%;
     font-size: 16px;
@@ -89,6 +97,7 @@ const Input = styled.div`
     flex: 1;
     outline: none;
     border: none;
+    background-color: ${(props) => props.color};
   }
 `;
 const Text = styled.h1`
@@ -97,6 +106,7 @@ const Text = styled.h1`
   text-align: center;
   margin-top: 50px;
   font-weight: 800;
+  color: ${(props) => props.color};
 
   @media (min-width: 320px) {
     width: 100%;
@@ -122,7 +132,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 60%;
-  background-color: white;
+  background-color: ${(props) => props.color};
   display: flex;
   justify-content: center;
 `;

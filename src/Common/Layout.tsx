@@ -1,6 +1,7 @@
 import { Header } from "./Header";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./Footer";
+// import ColorChanger from "./Footer";
 
 export const Layout = () => {
   return (
@@ -8,6 +9,7 @@ export const Layout = () => {
       <Header />
       <Outlet />
       <Footer />
+      {/* <ColorChanger /> */}
     </div>
   );
 };
